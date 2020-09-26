@@ -5,7 +5,7 @@
     name: cuda-drivers
     state: absent
     autoremove: yes
-    install_recommends: no
+    install_recommends: "{{ install_recommends }}"
     update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
   when:
     nvidia_driver_package_name != "cuda-drivers" and
@@ -31,7 +31,7 @@
   apt:
     name: "{{ nvidia_driver_packages | reject('equalto', '') | list }}"
     state: present
-    install_recommends: no
+    install_recommends: "{{ install_recommends }}"
     update_cache: "{{ 'yes' if not ansible_check_mode | bool else 'no' }}"
   when:
     not ansible_check_mode or

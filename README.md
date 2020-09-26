@@ -14,6 +14,7 @@ Role Variables
 ```
 nvidia_driver_repo: nvidia
 nvidia_driver_version: 384
+install_recommends: yes
 ```
 
 - `nvidia_driver_repo` is a variable to specify which APT repository is added,
@@ -22,6 +23,7 @@ nvidia_driver_version: 384
    - `ppa`: register [Ubuntu PPA repository](https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa)
    - `ubuntu`: Ubuntu official APT repository, nothing to register
 - `nvidia_driver_version` is a variable to specify NVIDIA graphics driver version and current default is `384`
+- `install_recommends` is a variable to make sure recommended packages are installed along with the nvidia drivers
 
 Dependencies
 ------------
